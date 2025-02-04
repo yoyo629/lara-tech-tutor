@@ -4,7 +4,7 @@ namespace App\Http\Requests\Tweet;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,6 @@ class CreateRequest extends FormRequest
         ];
     }
 
-    /**
-     * 投稿データ取得
-     *
-     * @return string
-     */
     public function tweet(): string
     {
         return $this->input('tweet');
