@@ -26,6 +26,11 @@ class CreateRequest extends FormRequest
         ];
     }
 
+    public function userId(): int
+    {
+        return $this->user()->id;
+    }
+
     /**
      * 投稿データ取得
      *

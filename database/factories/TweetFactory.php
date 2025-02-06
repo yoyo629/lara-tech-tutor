@@ -18,6 +18,7 @@ class TweetFactory extends Factory
     {
         return [
             // fakerはダミーテキストを生成
+            'user_id' => 1,
             'content' => $this->faker->realText(100)
         ];
     }

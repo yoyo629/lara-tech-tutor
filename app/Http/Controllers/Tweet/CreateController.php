@@ -16,6 +16,8 @@ class CreateController extends Controller
     {
         //Tweetモデルをインスタンス化
         $tweet = new Tweet;
+        //userid取得
+        $tweet->user_id = $request->userId();
         //画面入力した投稿内容を取得
         $tweet->content = $request->tweet();
         //DBに保存
