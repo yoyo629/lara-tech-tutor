@@ -13,6 +13,8 @@ class NewUserIntroduction extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $subject = '新しいユーザーが追加されました！';
+
     /**
      * Create a new message instance.
      */
@@ -49,5 +51,15 @@ class NewUserIntroduction extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+
+    /**
+     * Build the Message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view('email.new_user_introduction');
     }
 }
