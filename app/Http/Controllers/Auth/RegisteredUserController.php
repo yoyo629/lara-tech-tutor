@@ -49,8 +49,11 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         //メール送信処理追加
-        $mailer->to('test@example.com')
-            ->send(new NewUserIntroduction());
+        $allUser = User::get();
+        foreach($allUser as $user){
+            $mailer->to($user->email)
+                ->send(new NewUserIntroduction());
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }
