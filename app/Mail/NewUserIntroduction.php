@@ -2,15 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User;
 
-class NewUserIntroduction extends Mailable
+class NewUserIntroduction extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -20,6 +18,8 @@ class NewUserIntroduction extends Mailable
 
     /**
      * Create a new message instance.
+     *
+     * @return void
      */
     public function __construct(User $toUser, User $newUser)
     {
@@ -28,32 +28,12 @@ class NewUserIntroduction extends Mailable
     }
 
     /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'New User Introduction',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'email.new_user_introduction',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
+     * Build the message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return $this
      */
-    public function attachments(): array
+    public function build()
     {
-        return [];
+        return $this->markdown('email.new_user_introduction');
     }
 }
