@@ -8,19 +8,23 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use App\Models\User;
 
 class NewUserIntroduction extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $subject = '新しいユーザーが追加されました！';
+    public User $toUser;
+    public User $newUser;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(User $toUser, User $newUser)
     {
-        //
+        $this->toUser = $toUser;
+        $this->newUser = $newUser;
     }
 
     /**
