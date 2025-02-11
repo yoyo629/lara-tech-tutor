@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1); // 型チェック
 
-use Faker\Guesser\Name;
-
-namespace App\Models\ImageUpload;
+namespace App\Modules\ImageUpload;
 
 use Illuminate\Support\Facades\Storage;
 

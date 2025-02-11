@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Models\ImageUpload;
+namespace App\Modules\ImageUpload;
 
 use Cloudinary\Cloudinary;
 use Illuminate\Contracts\Filesystem\Cloud;
