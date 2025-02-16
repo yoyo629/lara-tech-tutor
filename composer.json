@@ -9,12 +9,11 @@
         "ext-memcached": "*",
         "cloudinary/cloudinary_php": "^2",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel-lang/lang": "~10.3",
+        "laravel-lang/lang": "^15",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "symfony/http-client": "^7.2",
-        "symfony/mailgun-mailer": "^7.1"
+        "symfony/mailer": "^6.4|^7.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
